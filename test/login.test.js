@@ -1,14 +1,9 @@
 import chai from 'chai';
-import server from '../src';
+import loginTestHelper from './helpers/loginHelper'
 
 const { expect } = chai;
 
 describe('Login route', () => {
-  const loginTestHelper = async (loginData) =>
-    chai
-      .request(server)
-      .post('/login')
-      .send(loginData);
 
   it('should login a user with the right credentials', async () => {
     const loginResponse = await loginTestHelper({
