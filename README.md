@@ -1,2 +1,2 @@
-# hackerbay-backend-challenge
+# hackerbay-backend-challenge [![CircleCI](https://circleci.com/gh/katunold/hackerbay-backend-challenge.svg?style=svg)](https://circleci.com/gh/katunold/hackerbay-backend-challenge) [![Maintainability](https://api.codeclimate.com/v1/badges/a3fb70f7bd621e51e5d7/maintainability)](https://codeclimate.com/github/katunold/hackerbay-backend-challenge/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/a3fb70f7bd621e51e5d7/test_coverage)](https://codeclimate.com/github/katunold/hackerbay-backend-challenge/test_coverage)
 Just attempting the Hackerbay backend challenge 
