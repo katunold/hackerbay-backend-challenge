@@ -30,3 +30,7 @@ jobs:
       - run:
           name: run unit tests
           command: npm run test
+      - run:
+          name: Report code coverage to Code Climate
+          command: |
+            ./cc-test-reporter after-build -t lcov --exit-code $? || true
