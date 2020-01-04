@@ -5,8 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default class Jwt {
-
-  static signToken = ( userId ) => {
+  static signToken = (userId) => {
     const iat = new Date().getTime();
     const exp = new Date().setDate(new Date().getDate() + 1);
     const { JWT_SECRET, JWT_ISSUER } = process.env;

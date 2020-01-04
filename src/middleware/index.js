@@ -1,4 +1,4 @@
-export const errorDisplay = (req, res, errors) => {
+const errorDisplay = (req, res, errors) => {
   const errorArr = [];
 
   errors.array().forEach((error) => {
@@ -11,3 +11,5 @@ export const errorDisplay = (req, res, errors) => {
   });
   return res.status(422).send({ error: errorArr });
 };
+
+export default errorDisplay;

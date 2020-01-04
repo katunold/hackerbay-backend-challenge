@@ -13,6 +13,6 @@ describe('Home route', () => {
     expect(response).to.have.status(200);
     expect(response.body)
       .to.have.property('message')
-      .to.contain("Hackerbay.io backend challenge");
+      .to.contain('Hackerbay.io backend challenge');
   });
 });
