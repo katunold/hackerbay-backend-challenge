@@ -2,11 +2,11 @@ import * as jsonPatch from 'jsonpatch';
 import user from '../models/user.model';
 
 export default class PatchController {
+  static thePatch = [];
   static patchUserData = (req, res) => {
     const { body } = req;
     const userKeys = Object.keys(user);
     const reqKeys = Object.keys(body);
-    const thePatch = [];
 
     reqKeys.forEach((key) => {
       let dataObj;
@@ -16,12 +16,12 @@ export default class PatchController {
           path: `/${key}`,
           value: `${body[key]}`,
         };
-        thePatch.push(dataObj);
+        this.thePatch.push(dataObj);
       }
       dataObj = { op: 'add', path: `/${key}`, value: `${body[key]}` };
-      thePatch.push(dataObj);
+      this.thePatch.push(dataObj);
     });
-    const patchedDoc = jsonPatch.apply_patch(user, thePatch);
+    const patchedDoc = jsonPatch.apply_patch(user, this.thePatch);
 
     return res.status(200).send(patchedDoc);
   };
