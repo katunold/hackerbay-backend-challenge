@@ -12,6 +12,7 @@
 		"coverage",
 		"test",
 		"src/models/**",
+		"src/utils/thumbnail.js",
 		"src/index.js"
 	],
 	"sourceMap": false,
