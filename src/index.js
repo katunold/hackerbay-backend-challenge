@@ -4,7 +4,7 @@ import router from './routes/index';
 const PORT = 8000;
 
 app.get('/', (req, res) => {
-  res.status(200).send({ message: 'Hackerbay.io backend challenge' });
+  res.status(200).send({ message: 'Hackerbay.io backend challenge 😎' });
 });
 app.use(router);
 
