@@ -152,6 +152,9 @@
       "schema": {
         "type": "object",
         "example": {
+          "userName": "test user",
+          "firstName": "test",
+          "lastName": "user",
           "email": "client@mail.com",
           "password": "new-password"
         }
