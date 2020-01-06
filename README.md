@@ -14,19 +14,19 @@ and testing purposes.
 What you need to install the software and get started.
 
 ```bash
-- git : to update and clone the repository
-- Nodejs: A platform on which the application will be running
-- npm: a package manager for Nodejs used to install project dependencies
+- git : to update and clone the repository.
+- Node.js: A platform on which the application will be running.
+- npm: a package manager for Node.js used to install project dependencies.
 ```
 
 ### Installation
-Clone the repository by typing the following command in your terminal to clone the repo
+Clone the repository by typing the following command in your terminal to clone the repo.
 ```bash
 git clone https://github.com/katunold/hackerbay-backend-challenge.git
 ```
 #### Development setup
-- Access the root directory of the cloned application
-- Install dependencies 
+- Access the root directory of the cloned application.
+- Install dependencies.
     ```bash
     npm i
     ```
@@ -48,18 +48,32 @@ git clone https://github.com/katunold/hackerbay-backend-challenge.git
  ```bash
 http://localhost:8000/docs
 ```
-
+ - To login and get an access token you will use the following credentials
+ ```bash
+{
+  "userName": "Arnold",
+  "password": "1qaz2wsx"
+}
+```
+ - To test out the application using Docker download the image by typing the following command in terminal
+ ```bash
+docker pull katunold/hackerbay-backend-challenge:latest 
+```
+ - Create and run a container by running this command in your terminal
+ ```bash
+docker run -p 8000:8000 katunold/hackerbay-backend-challenge
+```
 ## Running the tests
 
-- To run the tests, run the following command in your terminal
+- To run the tests, run the following command in your terminal.
 
 ```bash
 npm run test
 ```
 ## Built With
 
-* [Express.js](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
-* [Node.js]() - A Server side platform for building fast and scalable network applications
+* [Express.js](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
+* [Node.js](https://nodejs.org/en/) - A JavaScript-based platform for server-side and networking applications.
 
 ## Author
 

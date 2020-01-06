@@ -5,24 +5,49 @@ import loginUserHelper from './helpers/loginHelper';
 const { expect } = chai;
 
 describe('JSON patch route', () => {
-  it('should update the user object with a new field', async () => {
-    const loginResponse = await loginUserHelper({
+  let loginResponse;
+  beforeEach(async () => {
+    loginResponse = await loginUserHelper({
       userName: 'Arnold',
       password: '1qaz2wsx',
     });
+  });
 
+  const updateDataTestHelper = (updateObject) => {
     const { token } = loginResponse.body.accessToken;
-    const patchResponse = await chai
+    return chai
       .request(server)
       .patch('/update')
       .set({
         Authorization: `Bearer ${token}`,
       })
-      .send({
-        email: 'katunold94@gmail.com',
-        userName: 'Arnold Katumba',
-      });
+      .send(updateObject);
+  };
+
+  it('should update the user object with a new field', async () => {
+    const patchResponse = await updateDataTestHelper({
+      email: 'katunold94@gmail.com',
+      userName: 'Arnold Katumba',
+    });
 
     expect(patchResponse).to.status(200);
+  });
+
+  it('should throw an error if invalid data is submitted', async () => {
+    const patchResponse = await updateDataTestHelper({
+      email: 'katunold94@gmail',
+      userName: 'Arnold Katumba',
+    });
+
+    expect(patchResponse).to.status(422);
+  });
+
+  it('should throw an error if unacceptable fields are submitted', async () => {
+    const patchResponse = await updateDataTestHelper({
+      email: 'katunold94@gmail.com',
+      age: 24,
+    });
+
+    expect(patchResponse).to.status(400);
   });
 });

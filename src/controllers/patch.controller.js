@@ -1,5 +1,7 @@
 import * as jsonPatch from 'jsonpatch';
 import user from '../models/user.model';
+import { validationResult } from 'express-validator';
+import errorDisplay from '../middleware';
 
 export default class PatchController {
   static thePatch = [];
@@ -7,6 +9,27 @@ export default class PatchController {
     const { body } = req;
     const userKeys = Object.keys(user);
     const reqKeys = Object.keys(body);
+    const errors = validationResult(req);
+    const possibleFields = [
+      'userName',
+      'firstName',
+      'lastName',
+      'password',
+      'email',
+    ];
+
+    if (!errors.isEmpty()) {
+      return errorDisplay(req, res, errors);
+    }
+
+    reqKeys.forEach((key) => {
+      if (!possibleFields.includes(key)) {
+        return res.status(400).send({
+          message: `${key} is not among the acceptable fields`,
+          possibleFields,
+        });
+      }
+    });
 
     reqKeys.forEach((key) => {
       let dataObj;
